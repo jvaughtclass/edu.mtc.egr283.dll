@@ -1,5 +1,6 @@
 package edu.mtc.egr283.dll;
 
+
 public class DLL<T> {
 
 	private DLLNode<T> head;
@@ -16,9 +17,9 @@ public class DLL<T> {
 
 	public boolean isEmpty() {
 		if(this.length!=0) {
-			return true;
-		}else {
 			return false;
+		}else {
+			return true;
 		}
 	}// Ending bracket of constructor
 	
@@ -76,6 +77,20 @@ public class DLL<T> {
 	public void setData(T newNodeData, int position) {
 		(this.find(position)).setNodeData(newNodeData);
 	}// Ending bracket of method setData
+	
+
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		DLLNode<T> cursor = this.head.getNext();
+
+		while(cursor != tail) {
+			sb.append(cursor.getNodeData().toString() + " ");
+			cursor = cursor.getNext();
+		}//end of while loop
+
+		return sb.toString();
+	}//ending bracket of method toString
+	
 
 	private void addAfter(DLLNode<T> cursor, DLLNode<T> newNode) {
 		newNode.setNext(cursor.getNext());
