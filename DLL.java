@@ -43,6 +43,9 @@ public class DLL<T> {
 		DLLNode<T> cursor = this.head;
 		DLLNode<T> newNode = new DLLNode<T>(null, newNodeData, null);
 
+		if(position>this.size()) {
+			position=this.size();
+		}
 		if(position > 0) {
 			cursor = this.find(position - 1);
 		}// Ending bracket of if
